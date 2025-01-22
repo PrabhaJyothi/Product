@@ -2,6 +2,7 @@ package com.Example.ProducrtDemo.controller;
 
 import com.Example.ProducrtDemo.dto.Productdto;
 import com.Example.ProducrtDemo.service.ProductService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,7 +18,7 @@ public class ProductController {
     private ProductService productService;
 
 @PostMapping("/create")
-    public ResponseEntity<Productdto> createProduct(@RequestBody Productdto productdto) {
+    public ResponseEntity<Productdto> createProduct(@Valid @RequestBody Productdto productdto) {
 
 
     Productdto savedProductdto = productService.savedProduct(productdto);
