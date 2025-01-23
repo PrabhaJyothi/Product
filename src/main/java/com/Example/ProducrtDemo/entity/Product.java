@@ -1,9 +1,6 @@
 package com.Example.ProducrtDemo.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
@@ -17,6 +14,10 @@ public class Product {
     private String name;
     private Double price;
     private String description;
+
+    @ManyToOne
+    @JoinColumn(name="category_id",referencedColumnName = "id")
+    private Category category;
 
     public Integer getId() {
         return id;
